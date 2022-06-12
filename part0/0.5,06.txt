@@ -1,0 +1,22 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: spa.js
+user->browser: A list is displayed
+note over browser:
+the server displays a list of the objects saved in a list
+end note
+user->browser: the user enters the respective data in the input
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: [{ "content":"hola soy chiri spa","date":"2022-06-12T21:07:48.734Z"}]
+note over server:
+With this endpoint, we can save the post request on the server, 
+in this case this is my request. In this case is not necesary refresh because in
+the same spa.js save the POST request
+end note
+user->browser: the user's result is displayed in the respective list
+
